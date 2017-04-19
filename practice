@@ -1,3 +1,10 @@
+0.
+
+######
+
+
+
+
 
 1.
 
@@ -53,4 +60,27 @@ conn.close()
 
 
 3.
+# filename update into mongoDb
+# -*- coding:utf8 -*-
+
+from pymongo import MongoClient
+import verfcode
+
+verfcode = Verification_code(200,10)
+
+client = MongoClient('localhost',28017)
+db = client.test_db
+collection = db.test_cln
+
+j = {}
+for i in range(len(verfcode)):
+  j.[i] = verfcode[i]
+
+posts = db.posts
+
+posts.count()
+
+
+
+
 
