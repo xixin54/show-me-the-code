@@ -3,3 +3,16 @@
 
 import string
 import random
+
+def Verification_code(number,length):
+  code = []
+  #j = ''
+  while len(code) < number:
+    scope = string.letters+string.digits
+    j = ''
+    for i in range(length):
+      j += random.choice(scope)
+    code.append(j)
+  return code
+  
+  
