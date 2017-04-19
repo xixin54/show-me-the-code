@@ -28,18 +28,29 @@ print Verification_code(200,10)
 # filename updated into db -- mysql, replaced by oracle 
 # coding:utf-8
 
-import mysql.connector 
+import mysql.connector # import cx_Oracle
 import verfcode
 
 verfcode = Verification_code(200,10)
+
 conn = mysql.connector.connect(user='',password='',host='',database='')
+# conn = cx_Oracle.connect('pythonhol/welcome@127.0.0.1/orcl')
+
 cur = conn.cursor()
 cur.excute("insert into dual(verfcode) values(verfcode)")
 
 cur.excute("select sysdate ,rownum from dual")
+
 for (sysdata,rownum) in cur:
   print("{},{}".format(sysdate,rownum))
-  
+
+# res = cur.fetchone()
+# res = cur.fetchmany(numRows=)
+# print res
+
 cur.close()
 conn.close()
+
+
+3.
 
