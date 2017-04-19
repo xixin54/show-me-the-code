@@ -1,11 +1,13 @@
 
+1.
+
+# filename verfcode.py
 # coding:utf-8
 
 import string
 import random
 
 --version 1
-
 def Verification_code(number,length):
   code = []
   #j = ''
@@ -19,3 +21,25 @@ def Verification_code(number,length):
   
 print Verification_code(200,10)
   
+
+
+2.
+
+# filename updated into db -- mysql, replaced by oracle 
+# coding:utf-8
+
+import mysql.connector 
+import verfcode
+
+verfcode = Verification_code(200,10)
+conn = mysql.connector.connect(user='',password='',host='',database='')
+cur = conn.cursor()
+cur.excute("insert into dual(verfcode) values(verfcode)")
+
+cur.excute("select sysdate ,rownum from dual")
+for (sysdata,rownum) in cur:
+  print("{},{}".format(sysdate,rownum))
+  
+cur.close()
+conn.close()
+
