@@ -4,6 +4,8 @@
 import string
 import random
 
+--version 1
+
 def Verification_code(number,length):
   code = []
   #j = ''
@@ -15,4 +17,5 @@ def Verification_code(number,length):
     code.append(j)
   return code
   
+print Verification_code(200,10)
   
