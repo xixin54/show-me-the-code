@@ -139,3 +139,13 @@ def adjustrecommend(id):
     for i in range(len(k)):  
         bookid_list.append(k[i][0])  
     return bookid_list,nearuser[:15]        #bookid_list推荐书籍的id，nearuser[:15]最近邻的15个用户
+   
+   
+   
+   
+   
+   
+#调用函数，输出结果
+bookid_list,near_list = adjustrecommend("changanamei")
+print ("bookid_list:",bookid_list)
+print ("near_list:",near_list)
