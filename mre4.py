@@ -1,21 +1,16 @@
-#!/usr/bin
+﻿#!/usr/bin
 #-*-coding:utf-8-*- 
 
 
 from math import sqrt
 import codecs 
+import platform
 
-'''
-fp = open("/tmp/siege2/python/test_data.txt","r")  
-users = {}  
-for line in fp:  
-    lines = line.strip().split(",")  
-    if lines[0] not in users:  
-        users[lines[0]] = {}  
-    users[lines[0]][lines[2]]=float(lines[1])  
-'''  
+## 元数据
+srcfile = r"C:\Users\siege\Desktop\crd2.txt" if platform.system()=="Windows" else "/tmp/siege2/python/crd_txn2.txt"
 
-fp = open("/tmp/siege2/python/crd_txn2.txt","r")  
+
+fp = open(srcfile,"r")  
 users = {}  
   
 for line in fp:  
@@ -166,18 +161,18 @@ class recommender:
         return recommendations[:self.n],nearest  
    
 def adjustrecommend(id):  
-    bookid_list = []  
+    merch_list = []  
     r = recommender(users)  
     k,nearuser = r.recommend("%s" % id)  
     for i in range(len(k)):  
-        bookid_list.append(k[i][0])  
-    return bookid_list,nearuser[:15]        #bookid_list include id，nearuser[:15] from 15 nearest users
+        merch_list.append(k[i][0])  
+    return merch_list,nearuser[:15]        #merch_list include id，nearuser[:15] from 15 nearest users
    
    
 '''
-bookid_list,near_list =mre4.adjustrecommend("100000004")  
+merch_list,near_list =mre4.adjustrecommend("100000004")  
 
 print ("near_list:",near_list)
-print ("bookid_list:",bookid_list)
+print ("merch_list:",merch_list)
    
 '''
